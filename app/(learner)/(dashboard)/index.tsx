@@ -1,10 +1,10 @@
 import { Text, View } from "react-native";
 
-export default function NotFound() {
+export default function Forums() {
   return (
     <>
       <View>
-        <Text>Page not found.</Text>
+        <Text>This is forums screen.</Text>
       </View>
     </>
   );

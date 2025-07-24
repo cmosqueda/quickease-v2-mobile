@@ -1,10 +1,10 @@
 import { Text, View } from "react-native";
 
-export default function NotFound() {
+export default function Library() {
   return (
     <>
       <View>
-        <Text>Page not found.</Text>
+        <Text>This is library screen.</Text>
       </View>
     </>
   );
