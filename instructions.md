@@ -47,3 +47,9 @@ quickease-mobile/
 - `routes/` - This contains all files related to routing.
 
 ---
+
+# 2. Code Management
+
+## ESLint
+
+Run `npx eslint . --ext .js,.jsx,.ts,.tsx` to identify inconsistencies and potential bugs in the app.

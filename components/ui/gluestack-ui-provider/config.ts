@@ -306,4 +306,6 @@ export const config = {
     "--color-indicator-info": "161 199 245",
     "--color-indicator-error": "232 70 69",
   }),
+
+  // gluestack only supports two modes atm wtfafq :((())
 };

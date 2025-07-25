@@ -1,5 +1,8 @@
 import gluestackPlugin from "@gluestack-ui/nativewind-utils/tailwind-plugin";
 
+// const { focusTheme } = require("./themes/focusTheme");
+// const { rushTheme } = require("./themes/rushTheme");
+
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   darkMode: process.env.DARK_MODE ? process.env.DARK_MODE : "media",
@@ -18,6 +21,19 @@ module.exports = {
   ],
   theme: {
     extend: {
+      perspective: {
+        1000: "1000px",
+      },
+      keyframes: {
+        float: {
+          "0%": { transform: "translateY(0)" },
+          "50%": { transform: "translateY(-30px)" },
+          "100%": { transform: "translateY(0)" },
+        },
+      },
+      animation: {
+        float: "float 3s ease-in-out infinite",
+      },
       colors: {
         primary: {
           0: "rgb(var(--color-primary-0)/<alpha-value>)",
@@ -197,7 +213,22 @@ module.exports = {
         "soft-3": "0px 0px 30px rgba(38, 38, 38, 0.1)",
         "soft-4": "0px 0px 40px rgba(38, 38, 38, 0.1)",
       },
+      borderRadius: {},
+      spacing: {},
+      borderWidth: {},
     },
   },
-  plugins: [gluestackPlugin],
+  plugins: [
+    gluestackPlugin,
+    function ({ addUtilities }) {
+      addUtilities({
+        ".transform-style-preserve-3d": {
+          transformStyle: "preserve-3d",
+        },
+        ".backface-hidden": {
+          backfaceVisibility: "hidden",
+        },
+      });
+    },
+  ],
 };

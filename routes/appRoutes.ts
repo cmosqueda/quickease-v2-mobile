@@ -2,13 +2,15 @@
 import type { AppRoutes } from "./routeConfig";
 
 export const appRoutes: AppRoutes = {
+  // index, entrypoint
   landing: [{ name: "index", options: { title: "Landing", headerShown: true } }],
   auth: [
+    // /(auth)/
     { name: "Login", options: { title: "Login" } },
     { name: "Register", options: { title: "Register" } },
   ],
   learner: [
-    // dashboard
+    // /(dashboard)/
     { name: "(dashboard)/index", options: { title: "Forums" } },
     { name: "(dashboard)/Library", options: { title: "Library" } },
     { name: "(dashboard)/Timer", options: { title: "Pomodoro" } },
@@ -16,18 +18,18 @@ export const appRoutes: AppRoutes = {
     { name: "(dashboard)/GenerateFlashcard", options: { title: "Generate Flashcard" } },
     { name: "(dashboard)/GenerateQuiz", options: { title: "Generate Quiz" } },
 
-    // flashcard
+    // /(flashcard)/
 
-    // note
+    // /(note)/
 
-    // quiz
+    // /(quiz)/
 
-    // post
+    // /(post)/
 
-    // profile
+    // /(profile)/
 
-    // search
+    // /(search)/
 
-    // settings
+    // /(settings)/
   ],
 };
