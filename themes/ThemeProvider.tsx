@@ -1,0 +1,1 @@
+// diri ko nag stop

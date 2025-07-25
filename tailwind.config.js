@@ -35,7 +35,15 @@ module.exports = {
         float: "float 3s ease-in-out infinite",
       },
       colors: {
+        base: {
+          100: "rgb(var(--color-base-100) / <alpha-value>)",
+          200: "rgb(var(--color-base-200) / <alpha-value>)",
+          300: "rgb(var(--color-base-300) / <alpha-value>)",
+          content: "rgb(var(--color-base-content) / <alpha-value>)",
+        },
         primary: {
+          default: "rgb(var(--color-primary-default) / <alpha-value>)",
+          content: "rgb(var(--color-primary-content) / <alpha-value>)",
           0: "rgb(var(--color-primary-0)/<alpha-value>)",
           50: "rgb(var(--color-primary-50)/<alpha-value>)",
           100: "rgb(var(--color-primary-100)/<alpha-value>)",
@@ -50,6 +58,8 @@ module.exports = {
           950: "rgb(var(--color-primary-950)/<alpha-value>)",
         },
         secondary: {
+          default: "rgb(var(--color-secondary-default) / <alpha-value>)",
+          content: "rgb(var(--color-secondary-content) / <alpha-value>)",
           0: "rgb(var(--color-secondary-0)/<alpha-value>)",
           50: "rgb(var(--color-secondary-50)/<alpha-value>)",
           100: "rgb(var(--color-secondary-100)/<alpha-value>)",
@@ -77,6 +87,8 @@ module.exports = {
           950: "rgb(var(--color-tertiary-950)/<alpha-value>)",
         },
         error: {
+          default: "rgb(var(--color-error-default) / <alpha-value>)",
+          content: "rgb(var(--color-error-content) / <alpha-value>)",
           0: "rgb(var(--color-error-0)/<alpha-value>)",
           50: "rgb(var(--color-error-50)/<alpha-value>)",
           100: "rgb(var(--color-error-100)/<alpha-value>)",
@@ -91,6 +103,8 @@ module.exports = {
           950: "rgb(var(--color-error-950)/<alpha-value>)",
         },
         success: {
+          default: "rgb(var(--color-success-default) / <alpha-value>)",
+          content: "rgb(var(--color-success-content) / <alpha-value>)",
           0: "rgb(var(--color-success-0)/<alpha-value>)",
           50: "rgb(var(--color-success-50)/<alpha-value>)",
           100: "rgb(var(--color-success-100)/<alpha-value>)",
@@ -105,6 +119,8 @@ module.exports = {
           950: "rgb(var(--color-success-950)/<alpha-value>)",
         },
         warning: {
+          default: "rgb(var(--color-warning-default) / <alpha-value>)",
+          content: "rgb(var(--color-warning-content) / <alpha-value>)",
           0: "rgb(var(--color-warning-0)/<alpha-value>)",
           50: "rgb(var(--color-warning-50)/<alpha-value>)",
           100: "rgb(var(--color-warning-100)/<alpha-value>)",
@@ -119,6 +135,8 @@ module.exports = {
           950: "rgb(var(--color-warning-950)/<alpha-value>)",
         },
         info: {
+          default: "rgb(var(--color-info-default) / <alpha-value>)",
+          content: "rgb(var(--color-info-content) / <alpha-value>)",
           0: "rgb(var(--color-info-0)/<alpha-value>)",
           50: "rgb(var(--color-info-50)/<alpha-value>)",
           100: "rgb(var(--color-info-100)/<alpha-value>)",
@@ -189,6 +207,8 @@ module.exports = {
           info: "rgb(var(--color-indicator-info)/<alpha-value>)",
           error: "rgb(var(--color-indicator-error)/<alpha-value>)",
         },
+        neutral: "rgb(var(--color-neutral-default) / <alpha-value>)",
+        "neutral-content": "rgb(var(--color-neutral-content) / <alpha-value>)",
       },
       fontFamily: {
         heading: undefined,
@@ -213,9 +233,18 @@ module.exports = {
         "soft-3": "0px 0px 30px rgba(38, 38, 38, 0.1)",
         "soft-4": "0px 0px 40px rgba(38, 38, 38, 0.1)",
       },
-      borderRadius: {},
-      spacing: {},
-      borderWidth: {},
+      borderRadius: {
+        selector: "var(--radii-selector)",
+        field: "var(--radii-field)",
+        box: "var(--radii-box)",
+      },
+      spacing: {
+        "size-selector": "var(--space-size-selector)",
+        "size-field": "var(--space-size-field)",
+      },
+      borderWidth: {
+        DEFAULT: "var(--border-width-default)",
+      },
     },
   },
   plugins: [
