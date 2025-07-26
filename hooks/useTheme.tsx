@@ -1,10 +1,13 @@
+import { themeRegistry } from "@/themes";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import { create } from "zustand";
 import { persist, PersistStorage } from "zustand/middleware";
 
+export type ThemeName = keyof typeof themeRegistry;
+
 type ThemeStore = {
-  theme?: "rush" | "focus";
-  setTheme: (theme: "rush" | "focus") => void;
+  theme?: ThemeName;
+  setTheme: (theme: ThemeName) => void;
 };
 
 const zustandStorage: PersistStorage<ThemeStore> = {
