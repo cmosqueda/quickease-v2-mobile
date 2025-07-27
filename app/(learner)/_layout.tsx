@@ -1,4 +1,4 @@
-import { appRoutes } from "@/routes";
+import { appRoutes } from "@/navigation";
 import { Stack } from "expo-router";
 
 export default function LearnerLayout() {

@@ -1,6 +1,20 @@
 // centralized route config
-import type { AppRoutes } from "./routeConfig";
+import { NativeStackNavigationOptions } from "@react-navigation/native-stack";
 
+// route item
+export interface RouteItem {
+  name: string;
+  options?: NativeStackNavigationOptions;
+  loader?: () => Promise<any>;
+  guard?: () => boolean | Promise<boolean>;
+}
+
+// app routes types
+export interface AppRoutes {
+  [group: string]: RouteItem[];
+}
+
+// app routes
 export const appRoutes: AppRoutes = {
   // index, entrypoint
   landing: [{ name: "index", options: { title: "Landing", headerShown: true } }],

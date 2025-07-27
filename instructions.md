@@ -21,7 +21,8 @@ quickease-mobile/
 │           └── index.web.tsx         # the entrypoint defined for gluestack provider - web
 │           └── script.ts             # the script for gluestack provider's themes
 ├── hooks/                            # contains hooks
-├── routes/                           # contains files related to routing
+├── types/                            # contains types for globally shared types
+├── navigation/                       # contains files related to navigation
 ├── tailwind.config.js                # Tailwind + Gluestack NativeWind plugin
 ├── global.css                        # Tailwind base/utilities
 ├── babel.config.js                   # Babel config (for NativeWind)
@@ -44,11 +45,22 @@ quickease-mobile/
     - `gluestack-ui-provider/` - contains all gluestack provider files
     - `*component name*/` - this contains all added gluestack components. If you've already worked with **shadcn ui**, it works the same like that.
 - `hooks/` - This contains all custom react hooks you've set up for this app.
-- `routes/` - This contains all files related to routing.
+- `navigation/` - This contains all files related to routing.
+- `types/` - This contains all types that are shared or accessed globally.
 
 ---
 
-# 2. Code Management
+# 2. Notice
+
+- In this codebase, the **gluestack** UI library is used for seamless development of UI components. Although creating custom components is fine, _I highly advise to use gluestack components inside the codebase as much as possible_. Only opt to create custom components if there is any UI component you wish to implement but is not yet supported or provided by gluestack.
+
+- For variable naming conventions, refer to the following:
+  - `camelCase` for variables that are not rendered.
+  - `PascalCase` for variables that are treated as React UI components
+
+---
+
+# 3. Code Management
 
 ## ESLint
 

@@ -7,6 +7,8 @@ import { VStack } from "@/components/ui/vstack";
 import { useState } from "react";
 import { ScrollView } from "react-native";
 
+// adto sa login form
+
 // login form
 const LoginForm = () => {
   const [isInvalid, setIsInvalid] = useState(false);
@@ -32,6 +34,8 @@ const LoginForm = () => {
           <Input className="my-1">
             <InputField type="password" placeholder="password"></InputField>
           </Input>
+
+          {/* balikan ko ni diri */}
         </FormControl>
       </VStack>
     </>

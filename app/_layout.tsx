@@ -4,7 +4,7 @@ import "../global.css";
 
 // import { GluestackUIProvider } from "@/components/ui/gluestack-ui-provider";
 import { ThemeProvider } from "@/components/ui/ThemeProvider/ThemeProvider";
-import { appRoutes } from "@/routes";
+import { appRoutes } from "@/navigation";
 
 export default function RootLayout() {
   const landingScreen = appRoutes.landing;
