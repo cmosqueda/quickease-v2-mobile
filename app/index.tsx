@@ -1,11 +1,13 @@
 import { Box } from "@/components/ui/box";
 import { Button, ButtonText } from "@/components/ui/button";
+import { Heading } from "@/components/ui/heading";
 import { HStack } from "@/components/ui/hstack";
 import { Text } from "@/components/ui/text";
 import { VStack } from "@/components/ui/vstack";
 
 // lucide react icons
 import { BookCheck, NotebookPen, SquareStack, Users } from "lucide-react-native";
+import { ScrollView } from "react-native";
 
 // card contents for features section
 const cardContents = [
@@ -35,13 +37,16 @@ const cardContents = [
 const HeroSection = () => {
   return (
     <>
-      <Box className="flex items-center space-y-5">
+      <Box className="flex items-center space-y-10 mt-20">
         {/* text */}
         <Box className="space-y-5 items-center ">
           <Text className="uppercase text-center">Supercharge your learning.</Text>
-          <Text size="5xl" bold className="text-center">
-            Learning has never been easier with QuickEase.
-          </Text>
+          <Heading size="5xl" bold className="text-center">
+            Learning has never been easier with{" "}
+            <Text size="6xl" bold>
+              QuickEase.
+            </Text>
+          </Heading>
           <Text className="text-center">
             QuickEase is a study assistant that helps you generate flashcards and quizzes effortlessly.
           </Text>
@@ -65,19 +70,21 @@ const HeroSection = () => {
 const FeaturesSection = () => {
   return (
     <>
-      <Box>
-        <Text size="3xl" bold className="text-center">
+      <Box className="flex space-y-10">
+        <Heading size="3xl" bold className="text-center">
           Features
-        </Text>
+        </Heading>
         <Box className="grid grid-cols-2 lg:grid-cols-3 gap-4">
+          {/* rendering card contents */}
           {cardContents.map(({ icon: Icon, title, description }) => (
             <>
-              <Box key={title}>
-                <Box className="flex flex-col">
-                  <Icon size={36} className="p-1 rounded-lg"></Icon>
-                  <Text>{title}</Text>
+              <Box key={title} className="flex flex-col">
+                <Icon size={36} className="p-1 rounded-lg"></Icon>
+                {/* texts */}
+                <Box className="flex flex-col ">
+                  <Text bold>{title}</Text>
+                  <Text size="sm">{description}</Text>
                 </Box>
-                <Text>{description}</Text>
               </Box>
             </>
           ))}
@@ -87,16 +94,32 @@ const FeaturesSection = () => {
   );
 };
 
+// footer
+const Footer = () => {
+  return (
+    <>
+      <Box>
+        <Text>QuickEase v2.0</Text>
+      </Box>
+    </>
+  );
+};
+
 export default function Landing() {
   return (
     <>
-      <VStack space="2xl" className="flex space-y-5 items-center">
-        {/* hero section */}
-        <HeroSection></HeroSection>
+      <ScrollView>
+        <VStack space="2xl" className="flex space-y-20 items-center m-5">
+          {/* hero section */}
+          <HeroSection></HeroSection>
 
-        {/* features section */}
-        <FeaturesSection></FeaturesSection>
-      </VStack>
+          {/* features section */}
+          <FeaturesSection></FeaturesSection>
+
+          {/* footer */}
+          <Footer></Footer>
+        </VStack>
+      </ScrollView>
     </>
   );
 }

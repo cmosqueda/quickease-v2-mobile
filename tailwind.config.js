@@ -18,27 +18,8 @@ module.exports = {
   ],
   theme: {
     extend: {
-      perspective: {
-        1000: "1000px",
-      },
-      keyframes: {
-        float: {
-          "0%": { transform: "translateY(0)" },
-          "50%": { transform: "translateY(-30px)" },
-          "100%": { transform: "translateY(0)" },
-        },
-      },
-      animation: {
-        float: "float 3s ease-in-out infinite",
-      },
       colors: {
-        // "base-100": "rgb(var(--color-base-100) / <alpha-value>)",
-        // "base-200": "rgb(var(--color-base-200) / <alpha-value>)",
-        // "base-300": "rgb(var(--color-base-300) / <alpha-value>)",
-        // "base-content": "rgb(var(--color-base-content) / <alpha-value>)",
-        // "primary-content": "rgb(var(--color-primary-content) / <alpha-value>)",
         primary: {
-          // DEFAULT: "rgb(var(--color-primary-default) / <alpha-value>)",
           0: "rgb(var(--color-primary-0)/<alpha-value>)",
           50: "rgb(var(--color-primary-50)/<alpha-value>)",
           100: "rgb(var(--color-primary-100)/<alpha-value>)",
@@ -52,9 +33,7 @@ module.exports = {
           900: "rgb(var(--color-primary-900)/<alpha-value>)",
           950: "rgb(var(--color-primary-950)/<alpha-value>)",
         },
-        // "secondary-content": "rgb(var(--color-secondary-content) / <alpha-value>)",
         secondary: {
-          // DEFAULT: "rgb(var(--color-secondary-default) / <alpha-value>)",
           0: "rgb(var(--color-secondary-0)/<alpha-value>)",
           50: "rgb(var(--color-secondary-50)/<alpha-value>)",
           100: "rgb(var(--color-secondary-100)/<alpha-value>)",
@@ -81,9 +60,7 @@ module.exports = {
           900: "rgb(var(--color-tertiary-900)/<alpha-value>)",
           950: "rgb(var(--color-tertiary-950)/<alpha-value>)",
         },
-        // "error-content": "rgb(var(--color-error-content) / <alpha-value>)",
         error: {
-          // DEFAULT: "rgb(var(--color-error-default) / <alpha-value>)",
           0: "rgb(var(--color-error-0)/<alpha-value>)",
           50: "rgb(var(--color-error-50)/<alpha-value>)",
           100: "rgb(var(--color-error-100)/<alpha-value>)",
@@ -97,9 +74,7 @@ module.exports = {
           900: "rgb(var(--color-error-900)/<alpha-value>)",
           950: "rgb(var(--color-error-950)/<alpha-value>)",
         },
-        // "success-content": "rgb(var(--color-success-content) / <alpha-value>)",
         success: {
-          // DEFAULT: "rgb(var(--color-success-default) / <alpha-value>)",
           0: "rgb(var(--color-success-0)/<alpha-value>)",
           50: "rgb(var(--color-success-50)/<alpha-value>)",
           100: "rgb(var(--color-success-100)/<alpha-value>)",
@@ -113,9 +88,7 @@ module.exports = {
           900: "rgb(var(--color-success-900)/<alpha-value>)",
           950: "rgb(var(--color-success-950)/<alpha-value>)",
         },
-        // "warning-content": "rgb(var(--color-warning-content) / <alpha-value>)",
         warning: {
-          // DEFAULT: "rgb(var(--color-warning-default) / <alpha-value>)",
           0: "rgb(var(--color-warning-0)/<alpha-value>)",
           50: "rgb(var(--color-warning-50)/<alpha-value>)",
           100: "rgb(var(--color-warning-100)/<alpha-value>)",
@@ -129,9 +102,7 @@ module.exports = {
           900: "rgb(var(--color-warning-900)/<alpha-value>)",
           950: "rgb(var(--color-warning-950)/<alpha-value>)",
         },
-        // "info-content": "rgb(var(--color-info-content) / <alpha-value>)",
         info: {
-          // DEFAULT: "rgb(var(--color-info-default) / <alpha-value>)",
           0: "rgb(var(--color-info-0)/<alpha-value>)",
           50: "rgb(var(--color-info-50)/<alpha-value>)",
           100: "rgb(var(--color-info-100)/<alpha-value>)",
@@ -202,10 +173,6 @@ module.exports = {
           info: "rgb(var(--color-indicator-info)/<alpha-value>)",
           error: "rgb(var(--color-indicator-error)/<alpha-value>)",
         },
-        // neutral: {
-        //   DEFAULT: "rgb(var(--color-neutral-default) / <alpha-value>)",
-        // },
-        // "neutral-content": "rgb(var(--color-neutral-content) / <alpha-value>)",
       },
       fontFamily: {
         heading: undefined,
@@ -230,31 +197,7 @@ module.exports = {
         "soft-3": "0px 0px 30px rgba(38, 38, 38, 0.1)",
         "soft-4": "0px 0px 40px rgba(38, 38, 38, 0.1)",
       },
-      borderRadius: {
-        selector: "var(--radii-selector)",
-        field: "var(--radii-field)",
-        box: "var(--radii-box)",
-      },
-      spacing: {
-        "size-selector": "var(--space-size-selector)",
-        "size-field": "var(--space-size-field)",
-      },
-      borderWidth: {
-        DEFAULT: "var(--border-width-default)",
-      },
     },
   },
-  plugins: [
-    gluestackPlugin,
-    // function ({ addUtilities }) {
-    //   addUtilities({
-    //     ".transform-style-preserve-3d": {
-    //       transformStyle: "preserve-3d",
-    //     },
-    //     ".backface-hidden": {
-    //       backfaceVisibility: "hidden",
-    //     },
-    //   });
-    // },
-  ],
+  plugins: [gluestackPlugin],
 };
