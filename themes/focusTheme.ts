@@ -1,5 +1,3 @@
-import { vars } from "nativewind";
-
 // FOCUS THEME COLORS
 // "base-100": "rgb(237, 247, 253)",
 // "base-200": "rgb(223, 242, 254)",
@@ -30,7 +28,7 @@ import { vars } from "nativewind";
 // "error": "rgb(254, 28, 85)",
 // "error-content": "rgb(77, 2, 24)",
 
-export const focusTheme = vars({
+export const focusTheme = {
   // colors
 
   "--color-base-100": "237 247 253",
@@ -65,4 +63,4 @@ export const focusTheme = vars({
 
   // border width
   "--border-width-default": "1px",
-});
+};

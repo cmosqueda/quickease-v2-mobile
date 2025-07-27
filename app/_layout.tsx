@@ -2,8 +2,9 @@
 import { Stack } from "expo-router";
 import "../global.css";
 
+// import { GluestackUIProvider } from "@/components/ui/gluestack-ui-provider";
+import { ThemeProvider } from "@/components/ui/ThemeProvider/ThemeProvider";
 import { appRoutes } from "@/routes";
-import { ThemeProvider } from "@/themes";
 
 export default function RootLayout() {
   const landingScreen = appRoutes.landing;

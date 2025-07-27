@@ -1,5 +1,3 @@
-import { vars } from "nativewind";
-
 // RUSH THEME COLORS
 
 // "base-100": "rgb(239, 246, 255)",
@@ -31,9 +29,7 @@ import { vars } from "nativewind";
 // "error": "rgb(255, 98, 102)",
 // "error-content": "rgb(68, 6, 7)",
 
-export const rushTheme = vars({
-  // colors
-
+export const rushTheme = {
   "--color-base-100": "239 246 255",
   "--color-base-200": "218 233 254",
   "--color-base-300": "189 218 254",
@@ -59,11 +55,11 @@ export const rushTheme = vars({
   "--space-size-selector": "4px",
   "--space-size-field": "4px",
 
-  // radii or border radius
+  // radii
   "--radii-selector": "16px",
   "--radii-field": "16px",
   "--radii-box": "16px",
 
   // border width
   "--border-width-default": "1px",
-});
+};

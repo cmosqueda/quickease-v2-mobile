@@ -1,4 +1,3 @@
-export * from "./ThemeProvider";
 export * from "./themeRegistry";
 
 // themes
