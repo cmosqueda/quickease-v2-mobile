@@ -4,9 +4,34 @@ import { HStack } from "@/components/ui/hstack";
 import { Text } from "@/components/ui/text";
 import { VStack } from "@/components/ui/vstack";
 
-// balik rako diri pokengena
+// lucide react icons
+import { BookCheck, NotebookPen, SquareStack, Users } from "lucide-react-native";
 
-// const for the hero section
+// card contents for features section
+const cardContents = [
+  {
+    icon: NotebookPen,
+    title: "Summarize with AI",
+    description: "Quickly turn long contents into key points.",
+  },
+  {
+    icon: SquareStack,
+    title: "Review with AI flashcards",
+    description: "Reinforce key concepts for better learning.",
+  },
+  {
+    icon: BookCheck,
+    title: "Test with AI quizzes",
+    description: "Challenge your knowledge with tailored questions",
+  },
+  {
+    icon: Users,
+    title: "Have a question?",
+    description: "Ask the community/users!",
+  },
+];
+
+// hero section
 const HeroSection = () => {
   return (
     <>
@@ -36,12 +61,27 @@ const HeroSection = () => {
   );
 };
 
-// const for the features section
+// features section
 const FeaturesSection = () => {
   return (
     <>
       <Box>
-        <Text>Hello buang</Text>
+        <Text size="3xl" bold className="text-center">
+          Features
+        </Text>
+        <Box className="grid grid-cols-2 lg:grid-cols-3 gap-4">
+          {cardContents.map(({ icon: Icon, title, description }) => (
+            <>
+              <Box key={title}>
+                <Box className="flex flex-col">
+                  <Icon size={36} className="p-1 rounded-lg"></Icon>
+                  <Text>{title}</Text>
+                </Box>
+                <Text>{description}</Text>
+              </Box>
+            </>
+          ))}
+        </Box>
       </Box>
     </>
   );
