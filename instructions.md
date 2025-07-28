@@ -54,6 +54,8 @@ quickease-mobile/
 
 - In this codebase, the **gluestack** UI library is used for seamless development of UI components. Although creating custom components is fine, _I highly advise to use gluestack components inside the codebase as much as possible_. Only opt to create custom components if there is any UI component you wish to implement but is not yet supported or provided by gluestack.
 
+- React Native Expo uses file-based routing with the `_layout.tsx` files managing these routes. To avoid complexities in managing routes in nested layout files, I created a workaround where I placed all of the route definitions into one file, located at `navigation/appRoutes.ts`. All route management will be handled in this file.
+
 - For variable naming conventions, refer to the following:
   - `camelCase` for variables that are not rendered.
   - `PascalCase` for variables that are treated as React UI components
