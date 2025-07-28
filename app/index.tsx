@@ -47,7 +47,7 @@ const HeroSection = () => {
               QuickEase.
             </Text>
           </Heading>
-          <Text className="text-center">
+          <Text className="text-center" size="lg">
             QuickEase is a study assistant that helps you generate flashcards and quizzes effortlessly.
           </Text>
         </Box>
@@ -74,7 +74,7 @@ const FeaturesSection = () => {
         <Heading size="3xl" bold className="text-center">
           Features
         </Heading>
-        <Box className="grid grid-cols-2 lg:grid-cols-3 gap-4">
+        <Box className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
           {/* rendering card contents */}
           {cardContents.map(({ icon: Icon, title, description }) => (
             <>
@@ -82,7 +82,9 @@ const FeaturesSection = () => {
                 <Icon size={36} className="p-1 rounded-lg"></Icon>
                 {/* texts */}
                 <Box className="flex flex-col ">
-                  <Text bold>{title}</Text>
+                  <Text bold size="lg">
+                    {title}
+                  </Text>
                   <Text size="sm">{description}</Text>
                 </Box>
               </Box>
