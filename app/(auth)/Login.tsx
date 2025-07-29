@@ -12,22 +12,39 @@ import { Heading } from "@/components/ui/heading";
 import { Input, InputField } from "@/components/ui/input";
 import { Text } from "@/components/ui/text";
 import { VStack } from "@/components/ui/vstack";
-import { useState } from "react";
 import { ScrollView } from "react-native";
 
-// adto sa login form
+import { zodResolver } from "@hookform/resolvers/zod";
+import { Controller, useForm } from "react-hook-form";
+import * as z from "zod";
+
+// login schema
+const schema = z.object({
+  email: z
+    .string()
+    .regex(/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/, { message: "Please enter a valid email" }),
+  password: z.string(),
+});
+
+type FormData = z.infer<typeof schema>;
 
 // login form
 const LoginForm = () => {
-  const [isInvalid, setIsInvalid] = useState(false);
-  const [inputValue, setInputValue] = useState("");
+  const {
+    control,
+    handleSubmit,
+    formState: { errors },
+  } = useForm<FormData>({
+    resolver: zodResolver(schema),
+    defaultValues: {
+      email: "",
+      password: "",
+    },
+  });
 
-  const handleSubmit = () => {
-    if (inputValue.length < 6) {
-      setIsInvalid(true);
-    } else {
-      setIsInvalid(false);
-    }
+  // login logic
+  const onSubmit = (data: FormData) => {
+    console.log("Form Data:", data);
   };
 
   return (
@@ -35,40 +52,62 @@ const LoginForm = () => {
       <Box className="flex w-full items-center">
         <VStack className="flex w-4/5 md:w-2/6 items-center space-y-4">
           {/* email */}
-          <FormControl isInvalid={isInvalid} isRequired={true} size="md" className="w-full">
+          <FormControl isRequired={true} size="md" className="w-full">
             <FormControlLabel>
               <FormControlLabelText>E-mail</FormControlLabelText>
             </FormControlLabel>
 
-            <Input className="my-1">
-              <InputField
-                type="text"
-                placeholder="eg. johndoe@gmail.com"
-                value={inputValue}
-                onChangeText={(text) => setInputValue(text)}
-              />
-            </Input>
+            <Controller
+              control={control}
+              name="email"
+              render={({ field: { onChange, value } }) => (
+                <>
+                  <Input className="my-1">
+                    <InputField type="text" placeholder="eg. johndoe@gmail.com" value={value} onChangeText={onChange} />
+                  </Input>
+                </>
+              )}
+            />
 
-            <FormControlError>
-              <FormControlErrorText size="sm">Invalid credentials</FormControlErrorText>
-            </FormControlError>
+            {/* form control error */}
+            {errors.email && (
+              <>
+                <FormControlError>
+                  <FormControlErrorText size="sm">Invalid credentials</FormControlErrorText>
+                </FormControlError>
+              </>
+            )}
           </FormControl>
 
-          <FormControl isInvalid={isInvalid} isRequired size="md" className="w-full">
+          {/* password */}
+          <FormControl isRequired={true} size="md" className="w-full">
             <FormControlLabel>
               <FormControlLabelText>Password</FormControlLabelText>
             </FormControlLabel>
 
-            <Input className="my-1">
-              <InputField type="password" placeholder="Enter your password" />
-            </Input>
+            <Controller
+              control={control}
+              name="password"
+              render={({ field: { onChange, value } }) => (
+                <>
+                  <Input className="my-1">
+                    <InputField
+                      type="password"
+                      placeholder="Enter your password"
+                      value={value}
+                      onChangeText={onChange}
+                    />
+                  </Input>
+                </>
+              )}
+            />
 
-            <FormControlError>
+            {/* <FormControlError>
               <FormControlErrorText size="sm">Invalid credentials</FormControlErrorText>
-            </FormControlError>
+            </FormControlError> */}
           </FormControl>
           {/* log in button */}
-          <Button className="w-full" size="md" onPress={handleSubmit}>
+          <Button className="w-full" size="md" onPress={handleSubmit(onSubmit)}>
             <ButtonText>Log in</ButtonText>
           </Button>
 
