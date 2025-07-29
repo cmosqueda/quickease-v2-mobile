@@ -50,9 +50,9 @@ const LoginForm = () => {
   return (
     <>
       <Box className="flex w-full items-center">
-        <VStack className="flex w-4/5 md:w-2/6 items-center space-y-4">
+        <VStack className="flex w-4/5 md:w-2/6 items-center gap-y-4">
           {/* email */}
-          <FormControl isRequired={true} size="md" className="w-full">
+          <FormControl isRequired={true} size="lg" className="w-full">
             <FormControlLabel>
               <FormControlLabelText>E-mail</FormControlLabelText>
             </FormControlLabel>
@@ -62,7 +62,7 @@ const LoginForm = () => {
               name="email"
               render={({ field: { onChange, value } }) => (
                 <>
-                  <Input className="my-1">
+                  <Input className="my-1" size="xl">
                     <InputField type="text" placeholder="eg. johndoe@gmail.com" value={value} onChangeText={onChange} />
                   </Input>
                 </>
@@ -80,7 +80,7 @@ const LoginForm = () => {
           </FormControl>
 
           {/* password */}
-          <FormControl isRequired={true} size="md" className="w-full">
+          <FormControl isRequired={true} size="lg" className="w-full">
             <FormControlLabel>
               <FormControlLabelText>Password</FormControlLabelText>
             </FormControlLabel>
@@ -90,7 +90,7 @@ const LoginForm = () => {
               name="password"
               render={({ field: { onChange, value } }) => (
                 <>
-                  <Input className="my-1">
+                  <Input className="my-1" size="xl">
                     <InputField
                       type="password"
                       placeholder="Enter your password"
@@ -107,7 +107,7 @@ const LoginForm = () => {
             </FormControlError> */}
           </FormControl>
           {/* log in button */}
-          <Button className="w-full" size="md" onPress={handleSubmit(onSubmit)}>
+          <Button className="w-full" size="xl" onPress={handleSubmit(onSubmit)}>
             <ButtonText>Log in</ButtonText>
           </Button>
 
@@ -115,7 +115,7 @@ const LoginForm = () => {
 
           {/* forgot password */}
 
-          <Button variant="link">
+          <Button variant="link" size="xl">
             <ButtonText>I forgot my password</ButtonText>
           </Button>
         </VStack>
@@ -129,8 +129,8 @@ export default function Login() {
   return (
     <>
       <ScrollView>
-        <VStack space="2xl" className="flex space-y-5 items-center m-5">
-          <Box className="space-y-4 mt-10">
+        <VStack space="2xl" className="flex gap-y-5 items-center m-5">
+          <Box className="gap-y-4 mt-10">
             <Heading size="4xl" className="text-center" bold>
               Welcome back
             </Heading>

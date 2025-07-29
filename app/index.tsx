@@ -7,6 +7,8 @@ import { VStack } from "@/components/ui/vstack";
 
 // lucide react icons
 import { BookCheck, NotebookPen, SquareStack, Users } from "lucide-react-native";
+
+import { useRouter } from "expo-router";
 import { ScrollView } from "react-native";
 
 // card contents for features section
@@ -35,11 +37,17 @@ const cardContents = [
 
 // hero section
 const HeroSection = () => {
+  const router = useRouter();
+
+  const goToLogin = () => {
+    router.push("/(auth)/Login");
+  };
+
   return (
     <>
-      <Box className="flex items-center space-y-10 mt-20">
+      <Box className="flex items-center gap-y-10 mt-20">
         {/* text */}
-        <Box className="space-y-5 items-center ">
+        <Box className="gap-y-5 items-center ">
           <Text className="uppercase text-center">Supercharge your learning.</Text>
           <Heading size="5xl" bold className="text-center">
             Learning has never been easier with{" "}
@@ -54,10 +62,10 @@ const HeroSection = () => {
 
         {/* buttons */}
         <HStack space="md">
-          <Button size="md" variant="solid">
+          <Button size="lg" variant="solid">
             <ButtonText>Join Now</ButtonText>
           </Button>
-          <Button size="md" variant="outline">
+          <Button size="lg" variant="outline" onPress={goToLogin}>
             <ButtonText>Sign In</ButtonText>
           </Button>
         </HStack>
@@ -70,7 +78,7 @@ const HeroSection = () => {
 const FeaturesSection = () => {
   return (
     <>
-      <Box className="flex space-y-10">
+      <Box className="flex gap-y-10">
         <Heading size="3xl" bold className="text-center">
           Features
         </Heading>
@@ -85,7 +93,9 @@ const FeaturesSection = () => {
                   <Text bold size="lg">
                     {title}
                   </Text>
-                  <Text size="sm">{description}</Text>
+                  <Text size="md" italic>
+                    {description}
+                  </Text>
                 </Box>
               </Box>
             </>
@@ -111,7 +121,7 @@ export default function Landing() {
   return (
     <>
       <ScrollView>
-        <VStack space="2xl" className="flex space-y-20 items-center m-5">
+        <VStack space="2xl" className="flex gap-y-20 items-center m-5">
           {/* hero section */}
           <HeroSection></HeroSection>
 
