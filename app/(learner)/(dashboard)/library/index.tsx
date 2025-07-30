@@ -1,10 +1,10 @@
 import { Text, View } from "react-native";
 
-export default function Library() {
+export default function Index() {
   return (
     <>
       <View>
-        <Text>This is library screen.</Text>
+        <Text>This is the index for library.</Text>
       </View>
     </>
   );

@@ -26,19 +26,22 @@ export const appRoutes: AppRoutes = {
   learner: [
     // /(dashboard)/
     { name: "(dashboard)/index", options: { title: "Forums" } },
-    { name: "(dashboard)/Library", options: { title: "Library" } },
     { name: "(dashboard)/Timer", options: { title: "Pomodoro" } },
     { name: "(dashboard)/GenerateNote", options: { title: "Generate Note" } },
     { name: "(dashboard)/GenerateFlashcard", options: { title: "Generate Flashcard" } },
     { name: "(dashboard)/GenerateQuiz", options: { title: "Generate Quiz" } },
 
+    // balikan ko ra ni => library index
+    { name: "(dashboard)/library/index" },
     // /(flashcard)/
 
     // /(note)/
 
     // /(quiz)/
 
-    // /(post)/
+    // /(forums or formerly post)/
+
+    { name: "(dashboard)/forums/index" },
 
     // /(profile)/
 
