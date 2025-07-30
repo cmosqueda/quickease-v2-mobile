@@ -2,6 +2,7 @@
 
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import React, { createContext, useEffect, useState } from "react";
+import { SafeAreaProvider, SafeAreaView } from "react-native-safe-area-context";
 import { GluestackUIProvider } from "../gluestack-ui-provider";
 
 // theme type
@@ -41,7 +42,11 @@ export const ThemeProvider = ({ children }: { children: React.ReactNode }) => {
   return (
     <>
       <ThemeContext.Provider value={{ theme, toggleTheme }}>
-        <GluestackUIProvider>{children}</GluestackUIProvider>
+        <SafeAreaProvider>
+          <SafeAreaView className="flex-1" edges={["right", "bottom", "left"]}>
+            <GluestackUIProvider>{children}</GluestackUIProvider>
+          </SafeAreaView>
+        </SafeAreaProvider>
       </ThemeContext.Provider>
     </>
   );

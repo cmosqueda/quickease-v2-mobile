@@ -10,6 +10,7 @@ import {
 } from "@/components/ui/form-control";
 import { Heading } from "@/components/ui/heading";
 import { Input, InputField } from "@/components/ui/input";
+import { Pressable } from "@/components/ui/pressable";
 import { Text } from "@/components/ui/text";
 import { VStack } from "@/components/ui/vstack";
 import { ScrollView } from "react-native";
@@ -18,12 +19,14 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { Controller, useForm } from "react-hook-form";
 import * as z from "zod";
 
+import { useAppNavigation } from "@/navigation";
+
 // login schema
 const schema = z.object({
   email: z
     .string()
     .regex(/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/, { message: "Please enter a valid email" }),
-  password: z.string(),
+  password: z.string().min(1, { message: "Password is required" }),
 });
 
 type FormData = z.infer<typeof schema>;
@@ -42,9 +45,11 @@ const LoginForm = () => {
     },
   });
 
+  const { goToRegister } = useAppNavigation();
+
   // login logic
-  const onSubmit = (data: FormData) => {
-    console.log("Form Data:", data);
+  const handleLogin = (data: FormData) => {
+    console.log("Login Form Data:", data);
   };
 
   return (
@@ -52,7 +57,7 @@ const LoginForm = () => {
       <Box className="flex w-full items-center">
         <VStack className="flex w-4/5 md:w-2/6 items-center gap-y-4">
           {/* email */}
-          <FormControl isRequired={true} size="lg" className="w-full">
+          <FormControl size="lg" className="w-full" isInvalid={!!errors.email}>
             <FormControlLabel>
               <FormControlLabelText>E-mail</FormControlLabelText>
             </FormControlLabel>
@@ -61,26 +66,22 @@ const LoginForm = () => {
               control={control}
               name="email"
               render={({ field: { onChange, value } }) => (
-                <>
-                  <Input className="my-1" size="xl">
-                    <InputField type="text" placeholder="eg. johndoe@gmail.com" value={value} onChangeText={onChange} />
-                  </Input>
-                </>
+                <Input className="my-1" size="xl">
+                  <InputField type="text" value={value} onChangeText={onChange} />
+                </Input>
               )}
             />
 
             {/* form control error */}
             {errors.email && (
-              <>
-                <FormControlError>
-                  <FormControlErrorText size="sm">Invalid credentials</FormControlErrorText>
-                </FormControlError>
-              </>
+              <FormControlError>
+                <FormControlErrorText size="sm">{errors.email.message}</FormControlErrorText>
+              </FormControlError>
             )}
           </FormControl>
 
           {/* password */}
-          <FormControl isRequired={true} size="lg" className="w-full">
+          <FormControl size="lg" className="w-full" isInvalid={!!errors.password}>
             <FormControlLabel>
               <FormControlLabelText>Password</FormControlLabelText>
             </FormControlLabel>
@@ -89,35 +90,40 @@ const LoginForm = () => {
               control={control}
               name="password"
               render={({ field: { onChange, value } }) => (
-                <>
-                  <Input className="my-1" size="xl">
-                    <InputField
-                      type="password"
-                      placeholder="Enter your password"
-                      value={value}
-                      onChangeText={onChange}
-                    />
-                  </Input>
-                </>
+                <Input className="my-1" size="xl">
+                  <InputField type="password" value={value} onChangeText={onChange} />
+                </Input>
               )}
             />
 
-            {/* <FormControlError>
-              <FormControlErrorText size="sm">Invalid credentials</FormControlErrorText>
-            </FormControlError> */}
+            {errors.password && (
+              <FormControlError>
+                <FormControlErrorText size="sm">{errors.password.message}</FormControlErrorText>
+              </FormControlError>
+            )}
           </FormControl>
           {/* log in button */}
-          <Button className="w-full" size="xl" onPress={handleSubmit(onSubmit)}>
+          <Button className="w-full" size="xl" onPress={handleSubmit(handleLogin)}>
             <ButtonText>Log in</ButtonText>
           </Button>
 
+          <Pressable onPress={() => console.log("Forgot password pressed")}>
+            <Text>Forgot password</Text>
+          </Pressable>
+
           <Divider></Divider>
 
-          {/* forgot password */}
+          {/* go to register screen */}
+          <Box className="flex flex-row flex-wrap items-center justify-center">
+            <Text>New to QuickEase? </Text>
+            <Pressable onPress={goToRegister}>
+              <Text underline bold>
+                Register Now
+              </Text>
+            </Pressable>
+          </Box>
 
-          <Button variant="link" size="xl">
-            <ButtonText>I forgot my password</ButtonText>
-          </Button>
+          {/* forgot password */}
         </VStack>
       </Box>
     </>
@@ -129,8 +135,8 @@ export default function Login() {
   return (
     <>
       <ScrollView>
-        <VStack space="2xl" className="flex gap-y-5 items-center m-5">
-          <Box className="gap-y-4 mt-10">
+        <VStack space="2xl" className="flex gap-y-10 items-center">
+          <Box className="gap-y-4 my-10">
             <Heading size="4xl" className="text-center" bold>
               Welcome back
             </Heading>
@@ -141,6 +147,11 @@ export default function Login() {
 
           {/* form */}
           <LoginForm></LoginForm>
+
+          {/* terms of use */}
+          <Pressable onPress={() => console.log("Terms of use pressed")}>
+            <Text>Terms of Use & Policy</Text>
+          </Pressable>
         </VStack>
       </ScrollView>
     </>

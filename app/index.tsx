@@ -1,15 +1,16 @@
 import { Box } from "@/components/ui/box";
 import { Button, ButtonText } from "@/components/ui/button";
+import { Card } from "@/components/ui/card";
 import { Heading } from "@/components/ui/heading";
 import { HStack } from "@/components/ui/hstack";
 import { Text } from "@/components/ui/text";
 import { VStack } from "@/components/ui/vstack";
-
 // lucide react icons
 import { BookCheck, NotebookPen, SquareStack, Users } from "lucide-react-native";
 
-import { useRouter } from "expo-router";
 import { ScrollView } from "react-native";
+
+import { useAppNavigation } from "@/navigation";
 
 // card contents for features section
 const cardContents = [
@@ -37,11 +38,12 @@ const cardContents = [
 
 // hero section
 const HeroSection = () => {
-  const router = useRouter();
+  // const router = useRouter();
 
-  const goToLogin = () => {
-    router.push("/(auth)/Login");
-  };
+  // const goToLogin = () => {
+  //   router.push("/(auth)/Login");
+  // };
+  const { goToLogin, goToRegister } = useAppNavigation();
 
   return (
     <>
@@ -62,7 +64,7 @@ const HeroSection = () => {
 
         {/* buttons */}
         <HStack space="md">
-          <Button size="lg" variant="solid">
+          <Button size="lg" variant="solid" onPress={goToRegister}>
             <ButtonText>Join Now</ButtonText>
           </Button>
           <Button size="lg" variant="outline" onPress={goToLogin}>
@@ -85,20 +87,18 @@ const FeaturesSection = () => {
         <Box className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
           {/* rendering card contents */}
           {cardContents.map(({ icon: Icon, title, description }) => (
-            <>
-              <Box key={title} className="flex flex-col">
-                <Icon size={36} className="p-1 rounded-lg"></Icon>
-                {/* texts */}
-                <Box className="flex flex-col ">
-                  <Text bold size="lg">
-                    {title}
-                  </Text>
-                  <Text size="md" italic>
-                    {description}
-                  </Text>
-                </Box>
+            <Card key={title} variant="elevated" size="lg" className="flex flex-col gap-5">
+              <Icon size={36} className="p-1 rounded-lg"></Icon>
+              {/* texts */}
+              <Box className="flex flex-col ">
+                <Text bold size="lg">
+                  {title}
+                </Text>
+                <Text size="md" italic>
+                  {description}
+                </Text>
               </Box>
-            </>
+            </Card>
           ))}
         </Box>
       </Box>
