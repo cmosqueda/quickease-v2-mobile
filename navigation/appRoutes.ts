@@ -25,14 +25,15 @@ export const appRoutes: AppRoutes = {
   ],
   learner: [
     // /(dashboard)/
-    { name: "(dashboard)/index", options: { title: "Forums" } },
-    { name: "(dashboard)/Timer", options: { title: "Pomodoro" } },
-    { name: "(dashboard)/GenerateNote", options: { title: "Generate Note" } },
-    { name: "(dashboard)/GenerateFlashcard", options: { title: "Generate Flashcard" } },
-    { name: "(dashboard)/GenerateQuiz", options: { title: "Generate Quiz" } },
+    { name: "index", options: { title: "Forums" } },
+    { name: "Timer", options: { title: "Pomodoro" } },
+    { name: "GenerateNote", options: { title: "Generate Note" } },
+    { name: "GenerateFlashcard", options: { title: "Generate Flashcard" } },
+    { name: "GenerateQuiz", options: { title: "Generate Quiz" } },
 
     // balikan ko ra ni => library index
-    { name: "(dashboard)/library/index" },
+    { name: "library/index" },
+    { name: "forums/index" },
     // /(flashcard)/
 
     // /(note)/

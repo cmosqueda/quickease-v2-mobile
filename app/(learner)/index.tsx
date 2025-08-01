@@ -4,7 +4,7 @@ export default function Index() {
   return (
     <>
       <View>
-        <Text>This is index inside dashboard.</Text>
+        <Text>This is index inside (learner).</Text>
       </View>
     </>
   );

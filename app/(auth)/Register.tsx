@@ -175,7 +175,7 @@ const RegisterForm = () => {
             control={control}
             name="isTermsAccepted"
             render={({ field: { value, onChange } }) => (
-              <Box className="flex-row items-start">
+              <Box className="flex flex-row items-center gap-y-5">
                 <Checkbox value="terms" isChecked={!!value} onChange={onChange} className="mt-1">
                   <CheckboxIndicator>
                     <CheckboxIcon as={Check} />

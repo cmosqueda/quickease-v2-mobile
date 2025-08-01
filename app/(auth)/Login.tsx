@@ -138,7 +138,7 @@ export default function Login() {
         <VStack space="2xl" className="flex gap-y-10 items-center">
           <Box className="gap-y-4 my-10">
             <Heading size="4xl" className="text-center" bold>
-              Welcome back
+              Welcome back!
             </Heading>
             <Text className="text-center" size="lg">
               Continue your learning journey.
